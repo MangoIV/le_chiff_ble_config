@@ -1,0 +1,33 @@
+# Draculady board configuration
+
+# Copyright (c) 2020 @MangoIV
+# SPDX-License-Identifier: MIT
+
+
+if BOARD_DRACULADY_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "Draculady"
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+    default y
+
+endif
+
+if BOARD_DRACULADY_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Draculady Left"
+
+endif
+
+if BOARD_DRACULADY_LEFT || BOARD_DRACULADY_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+config BOARD_DRACULADY
+	bool "DracuLady"
+	depends on SOC_NRF52840_QIAA
+
+endif
