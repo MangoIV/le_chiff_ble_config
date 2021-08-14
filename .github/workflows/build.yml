@@ -1,54 +1,87 @@
-on: [push, pull_request, create, workflow_dispatch]
-
 name: Build
+
+env:
+  config-path: zmk-config
+
+on:
+  push:
+    paths:
+      - ".github/workflows/build.yml"
+      - "zmk-config/**"
+  pull_request:
+    paths:
+      - ".github/workflows/build.yml"
+      - "zmk-config/**"
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     container:
-      image: zmkfirmware/zmk-build-arm:2.4
-    name: Build Test
+      image: zmkfirmware/zmk-build-arm:2.5
+    strategy:
+      fail-fast: false
+      matrix:
+        # List the firmware to build here. Each item use the following properties.
+        #  board: (required) the board to build.
+        #  shield: (optional) the shield to build. Omit for a standalone board.
+        #  cmake-args: (optional) extra arguments to pass to CMake as a string.
+        include:
+          - board: numble
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          path: config/
       - name: Cache west modules
         uses: actions/cache@v2
         env:
           cache-name: cache-zephyr-modules
         with:
           path: |
+            bootloader/
             modules/
             tools/
             zephyr/
-            bootloader/
             zmk/
-          key: ${{ runner.os }}-build-v2-${{ env.cache-name }}-${{ hashFiles('manifest-dir/west.yml') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('${{ env.config-path }}/west.yml') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+        timeout-minutes: 2
+        continue-on-error: true
       - name: Initialize workspace (west init)
-        run: west init -l config
+        run: west init -l ${{ env.config-path }}
       - name: Update modules (west update)
         run: west update
-      - name: Export zephyr CMake package (west zephyr-export)
+      - name: Export Zephyr CMake package (west zephyr-export)
         run: west zephyr-export
-      - name: List modules (west list)
-        run: west list
+      - name: Prepare variables
+        id: variables
+        run: |
+          if [ -n "${{ matrix.shield }}" ]; then
+            SHIELD_ARG="-DSHIELD=${{ matrix.shield }}"
+            ARTIFACT_NAME="${{ matrix.shield }}-${{ matrix.board }}-zmk"
+          else
+            SHIELD_ARG=
+            ARTIFACT_NAME="${{ matrix.board }}-zmk"
+          fi
+          echo ::set-output name=shield-arg::${SHIELD_ARG}
+          echo ::set-output name=artifact-name::${ARTIFACT_NAME}
       - name: Build (west build)
-        run: west build -s zmk/app -b draculady -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
-      - name: Draculady DTS File
-        if: ${{ always() }}
-        run: cat -n build/zephyr/draculady.dts.pre.tmp
-      - name: Draculady .config
-        if: ${{ always() }}
-        run: cat -n build/zephyr/.config
-      - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 draculady.uf2
-      - name: Archive
+        run: |
+          west build -s zmk/app -b ${{ matrix.board }} -- \
+          ${{ steps.variables.outputs.shield-arg }} \
+          -DZMK_CONFIG="${GITHUB_WORKSPACE}/${{ env.config-path }}" \
+          ${{ matrix.cmake-args }}
+      - name: Generated DTS file
+        if: always()
+        run: cat -n build/zephyr/${{ matrix.board }}.dts.pre.tmp
+      - name: Rename artifacts
+        run: |
+          mkdir build/artifacts
+          [ -f build/zephyr/zmk.hex ] && cp build/zephyr/zmk.hex "build/artifacts/${{ steps.variables.outputs.artifact-name }}.hex"
+          [ -f build/zephyr/zmk.uf2 ] && cp build/zephyr/zmk.uf2 "build/artifacts/${{ steps.variables.outputs.artifact-name }}.uf2"
+      - name: Archive artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: firmware
-          path: draculady.uf2
+          name: "${{ steps.variables.outputs.artifact-name }}"
+          path: build/artifacts
