@@ -11,11 +11,11 @@
 
 // makes it possible to hold backspace
 &mt {
-    quick_tap_ms = <100>;
+    quick_tap_ms = <150>;
 };
 
 &lt {
-    quick_tap_ms = <100>;
+    quick_tap_ms = <150>;
 };
 
 / {
