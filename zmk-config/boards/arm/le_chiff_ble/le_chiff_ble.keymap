@@ -14,6 +14,10 @@
     quick_tap_ms = <100>;
 };
 
+&lt {
+    quick_tap_ms = <100>;
+};
+
 / {
 	keymap {
 		compatible = "zmk,keymap";
