@@ -10,6 +10,11 @@
 #include <dt-bindings/zmk/outputs.h>
 
 / {
+    behaviors {
+        &mt {
+          quick_tap_ms = 100;
+        };
+    };
 
 	keymap {
 		compatible = "zmk,keymap";
