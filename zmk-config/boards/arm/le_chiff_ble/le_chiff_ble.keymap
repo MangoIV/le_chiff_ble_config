@@ -45,10 +45,11 @@
             &kp Q       &kp W   &kp E   &kp R   &kp T                   &kp Y   &kp U   &kp I       &kp O   &kp P
             &kp A       &kp S   &kp D   &kp F   &kp G                   &kp H   &kp J   &kp K       &kp L   &kp SEMI
             &mt LSHFT Z &kp X   &kp C   &kp V   &kp B   &kp C_MUTE      &kp N   &kp M   &kp COMMA   &kp DOT &mt RSHFT FSLH
-                        &mt LALT BSPC   &mt LCTRL SPACE                 &lt 1 RET       &lt 2 DEL
+                        		&lt 4 BSPC   &lt 3 SPACE                 &lt 1 RET       &lt 2 DEL
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
+
 		numbers {
             label = "Numbers";
 //  _____________________________       _____________________________
@@ -58,14 +59,15 @@
 //         \  LAlt   |    Ctl    /     \   Trns    |         /
 //          ---------------------       --------------------
 			bindings = <
-            &kp N1      &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
-            &kp TAB &bt BT_PRV &bt BT_NXT &kp C_VOL_DN &kp C_VOL_UP &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp SQT
-            &kp LSHFT &bt BT_SEL 0 &bt BT_CLR &kp C_MUTE &none &none &kp HOME &kp END &kp PG_UP &kp PG_DN &kp RSHFT
-            &kp LALT &kp LCTRL &trans &none
+			&none	&none	&none	&none	&none			&none	&none	&none	&none	&none
+			&none	&none	&none	&none	&none			&none	&none	&none	&none	&none
+			&none	&none	&none	&none	&none	&none	&none	&none	&none	&none	&none
+									&none	&none			&none	&none
 			>;
 			sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
 		};
-		symbols {
+		
+		functions {
             label = "Functions";
 //  _____________________________       _____________________________
 // / ESC | F1  | F2  | F3  | F4  \     / USB | BLE |     |  =  |  -  \
@@ -74,12 +76,84 @@
 //         \  LAlt   |    Ctl    /     \           | Trns    /
 //          ---------------------       --------------------
 			bindings = <
-            &kp ESC &kp F1 &kp F2 &kp F3 &kp F4 &out OUT_USB &out OUT_BLE &none  &kp EQUAL &kp MINUS
-            &none &kp F5 &kp F6 &kp F7 &kp F8 &kp LBKT &kp RBKT &none &kp GRAVE &kp BSLH
-            &kp LSHFT &kp F9 &kp F10 &kp F11 &kp F12 &none &none &none &reset &bootloader &kp RSHFT
-            &kp LALT &kp LCTRL &none &trans
+			&none	&none	&none	&none	&none			&none	&none	&none	&none	&none
+			&none	&none	&none	&none	&none			&none	&none	&none	&none	&none
+			&none	&none	&none	&none	&none	&none	&none	&none	&none	&none	&none
+									&none	&none			&none	&none
 			>;
 			sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+		};
+
+		navigation {
+            label = "Navigation";
+//  _____________________________       _____________________________
+// / ESC | F1  | F2  | F3  | F4  \     / USB | BLE |     |  =  |  -  \
+// |     | F5  | F6  | F7  | F8  | ___ |  [  |  ]  |     |  `  |  \  |
+// | Sft | F9  | F10 | F11 | F12 ||   ||     |     |     |     | Sft |
+//         \  LAlt   |    Ctl    /     \           | Trns    /
+//          ---------------------       --------------------
+			bindings = <
+			&none	&none	&none	&none	&none			&none	&none	&none	&none	&none
+			&none	&none	&none	&none	&none			&none	&none	&none	&none	&none
+			&none	&none	&none	&none	&none	&none	&none	&none	&none	&none	&none
+									&none	&none			&none	&none
+			>;
+			sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+		};
+
+		settings {
+            label = "Settings";
+//  _____________________________       _____________________________
+// / ESC | F1  | F2  | F3  | F4  \     / USB | BLE |     |  =  |  -  \
+// |     | F5  | F6  | F7  | F8  | ___ |  [  |  ]  |     |  `  |  \  |
+// | Sft | F9  | F10 | F11 | F12 ||   ||     |     |     |     | Sft |
+//         \  LAlt   |    Ctl    /     \           | Trns    /
+//          ---------------------       --------------------
+			bindings = <
+			&none	&none	&none	&none	&none			&none	&none	&none	&none	&none
+			&none	&none	&none	&none	&none			&none	&none	&none	&none	&none
+			&none	&none	&none	&none	&none	&none	&none	&none	&none	&none	&none
+									&none	&none			&none	&none
+			>;
+			sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+		};
+	};
+};
+
+//  _____________________________       _____________________________
+// /  0  |  1  |  2  |  3  |  4  \     /   5 |   6 |   7 |   8 |  9  \
+// | 10  | 11  | 12  | 13  | 14  | ___ |  15 |  16 |  17 |  18 | 19  |
+// | 20  | 21  | 22  | 23  | 24  ||025||  26 |  27 |  28 |  29 | 30  |
+//          \   31   |    32     /     \     33      |  34    /
+//           --------------------       ---------------------
+
+/ {
+	combos {
+		compatible = "zmk,combos";        
+		combo_esc {            
+			timeout-ms = <20>;            
+			key-positions = <11 12>;            
+			bindings = <&kp ESC>;        
+		};
+		combo_tab {
+			timeout-ms = <20>;            
+			key-positions = <12 13>;            
+			bindings = <&kp TAB>; 
+		};
+		combo_del {
+			timeout-ms = <20>;            
+			key-positions = <15 16>;            
+			bindings = <&kp DEL>; 
+		};
+		combo_bspc {
+			timeout-ms = <20>;            
+			key-positions = <16 17>;            
+			bindings = <&kp BSPC>; 
+		};
+		combo_enter {
+			timeout-ms = <20>;            
+			key-positions = <17 18>;            
+			bindings = <&kp RET>; 
 		};
 	};
 };
