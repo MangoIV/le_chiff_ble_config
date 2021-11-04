@@ -51,7 +51,7 @@
 		};
 
 		numbers {
-            label = "Numbers";
+            label = "Num";
 //  _____________________________       _____________________________
 // /  1  |  2  |  3  |  4  |  5  \     /  6  |  7  |  8  |  9  |  0  \
 // | TAB |BTPRV|BTNXT| VOL-| VOL+| ___ |  <  |  v  |  ^  |  >  |  '  |
@@ -59,16 +59,16 @@
 //         \  LAlt   |    Ctl    /     \   Trns    |         /
 //          ---------------------       --------------------
 			bindings = <
-			&none	&none	&none	&none	&none			&none	&none	&none	&none	&none
-			&none	&none	&none	&none	&none			&none	&none	&none	&none	&none
-			&none	&none	&none	&none	&none	&none	&none	&none	&none	&none	&none
-									&none	&none			&none	&none
+			&kp MINUS	&kp N7	&kp N8	&kp N9	&kp N0				&none	&none		&none		&none		&none
+			&kp EQUAL	&kp N4	&kp N5	&kp N6	&kp SQT				&none	&kp RSHFT	&kp RCTRL	&kp LALT	&kp LGUI
+			&kp GRAVE	&kp N1	&kp N2	&kp N3	&kp BSLH	&none	&none	&none		&none		&none		&none
+										&none	&none				&none	&none
 			>;
 			sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
 		};
 		
 		functions {
-            label = "Functions";
+            label = "Func";
 //  _____________________________       _____________________________
 // / ESC | F1  | F2  | F3  | F4  \     / USB | BLE |     |  =  |  -  \
 // |     | F5  | F6  | F7  | F8  | ___ |  [  |  ]  |     |  `  |  \  |
@@ -76,16 +76,16 @@
 //         \  LAlt   |    Ctl    /     \           | Trns    /
 //          ---------------------       --------------------
 			bindings = <
-			&none	&none	&none	&none	&none			&none	&none	&none	&none	&none
-			&none	&none	&none	&none	&none			&none	&none	&none	&none	&none
-			&none	&none	&none	&none	&none	&none	&none	&none	&none	&none	&none
-									&none	&none			&none	&none
+			&kp F12	&kp F7	&kp F8	&kp F9	&kp PSCRN			&none	&none		&none		&none		&none
+			&kp F11	&kp F4	&kp F5	&kp F6	&kp CAPS			&none	&kp RSHFT	&kp RCTRL	&kp LALT	&kp LGUI
+			&kp F10	&kp F1	&kp F2	&kp F3	&kp INS		&none	&none	&none		&none		&none		&none
+									&none	&none				&none	&none
 			>;
-			sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+			sensor-bindings = <&inc_dec_kp LC(Z) LC(Y)>;
 		};
 
 		navigation {
-            label = "Navigation";
+            label = "Navi";
 //  _____________________________       _____________________________
 // / ESC | F1  | F2  | F3  | F4  \     / USB | BLE |     |  =  |  -  \
 // |     | F5  | F6  | F7  | F8  | ___ |  [  |  ]  |     |  `  |  \  |
