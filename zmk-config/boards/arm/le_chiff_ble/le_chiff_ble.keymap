@@ -38,14 +38,14 @@
 //  _____________________________       _____________________________
 // /  Q  |  W  |  E  |  R  |  T  \     /  Y  |  U  |  I  |  O  |  P  \
 // |  A  |  S  |  D  |  F  |  G  | ___ |  H  |  J  |  K  |  L  |  ;  |
-// |Sft/Z|  X  |  C  |  V  |  B  ||MUT||  N  |  M  |  ,  |  .  |Sft//|
-//         \LAlt/Bspc|  Ctl/SPC  /     \  Num/Del  | Sym/Ent /
+// |  Z  |  X  |  C  |  V  |  B  ||MUT||  N  |  M  |  ,  |  .  |  /  |
+//         \ Set/Tab |  Nav/Ent  /     \  Num/Spc  | Fun/Bspc /
 //          ---------------------       --------------------
 			bindings = <
-            &kp Q       &kp W   &kp E   &kp R   &kp T                   &kp Y   &kp U   &kp I       &kp O   &kp P
-            &kp A       &kp S   &kp D   &kp F   &kp G                   &kp H   &kp J   &kp K       &kp L   &kp SEMI
-            &mt LSHFT Z &kp X   &kp C   &kp V   &kp B   &kp C_MUTE      &kp N   &kp M   &kp COMMA   &kp DOT &mt RSHFT FSLH
-                        		&lt 4 BSPC   &lt 3 SPACE                 &lt 1 RET       &lt 2 DEL
+            &kp Q       &kp W   	&kp E   	&kp R   	&kp T               &kp Y   &kp U   	&kp I       &kp O   		&kp P
+            &hm LGUI A	&hm LALT S	&hm LCTRL D	&hm LSHFT F	&kp G               &kp H   &hm RSHFT J	&hm RCTRL K	&hm LALT L		&hm LGUI SEMI
+            &kp Z 		&hm RALT X  &kp C   	&kp V   	&kp B   &kp C_MUTE	&kp N   &kp M   	&kp COMMA   &hm RALT DOT 	&kp FSLH
+                        		&lt 4 TAB   		&lt 3 RET                 	&lt 1 SPACE       &lt 2 BSPC
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
