@@ -155,5 +155,25 @@
 			key-positions = <17 18>;            
 			bindings = <&kp RET>; 
 		};
+		combo_ae {
+			timeout-ms = <20>;            
+			key-positions = <0 10>;            
+			bindings = <&kp RA(Q)>; 
+		};
+		combo_oe {
+			timeout-ms = <20>;            
+			key-positions = <8 18>;            
+			bindings = <&kp RA(P)>; 
+		};
+		combo_ue {
+			timeout-ms = <20>;            
+			key-positions = <6 16>;            
+			bindings = <&kp RA(Y)>; 
+		};
+		combo_ss {
+			timeout-ms = <20>;            
+			key-positions = <1 11>;            
+			bindings = <&kp RA(S)>; 
+		};
 	};
 };
