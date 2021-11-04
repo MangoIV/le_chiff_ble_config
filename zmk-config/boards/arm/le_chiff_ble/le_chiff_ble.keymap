@@ -93,10 +93,10 @@
 //         \  LAlt   |    Ctl    /     \           | Trns    /
 //          ---------------------       --------------------
 			bindings = <
-			&none	&none	&none	&none	&none			&none	&none	&none	&none	&none
-			&none	&none	&none	&none	&none			&none	&none	&none	&none	&none
-			&none	&none	&none	&none	&none	&none	&none	&none	&none	&none	&none
-									&none	&none			&none	&none
+			&none		&none		&none		&none		&kp	LBRC			&kp	RBRC	&kp LC(LEFT)	&kp LC(DOWN)	&kp LC(UP)	&kp LC(RIGHT)
+			&kp LGUI	&kp LALT	&kp LCTRL	&kp LSHFT	&kp LPAR			&kp RPAR	&kp LEFT		&kp DOWN		&kp UP		&kp RIGHT
+			&none		&kp RALT	&none		&none		&kp LBKT	&none	&kp RBKT	&kp HOME		&kp PG_DN		&kp PG_UP	&kp END
+												&none		&none				&none		&none
 			>;
 			sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
 		};
