@@ -175,5 +175,10 @@
 			key-positions = <1 11>;            
 			bindings = <&kp RA(S)>; 
 		};
+		combo_quitTerminal {
+			timeout-ms = <20>;            
+			key-positions = <20 21 22 23>;            
+			bindings = <&kp LC(C)>;
+		}
 	};
 };
