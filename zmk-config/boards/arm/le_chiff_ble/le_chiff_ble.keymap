@@ -180,5 +180,10 @@
 			key-positions = <20 21 22 23>;            
 			bindings = <&kp LC(C)>;
 		};
+		combo_lockScreen {
+			timeout-ms = <20>;
+			key-positions = <27 28 29 30>
+			bindings = <&kp LG(L)>
+		};
 	};
 };
