@@ -28,3 +28,14 @@ CONFIG_FLASH_MAP=y
 
 CONFIG_EC11=y
 CONFIG_EC11_TRIGGER_GLOBAL_THREAD=y
+
+# Enable deep sleep support
+CONFIG_ZMK_SLEEP=y
+# Milliseconds of inactivity before entering deep sleep
+# 90 minutes
+CONFIG_ZMK_IDLE_SLEEP_TIMEOUT=5400000
+# Milliseconds of inactivity before entering idle state
+# 30 seconds
+CONFIG_ZMK_IDLE_TIMEOUT=30000
+# Name
+CONFIG_ZMK_KEYBOARD_NAME="Schiffer bleu"
