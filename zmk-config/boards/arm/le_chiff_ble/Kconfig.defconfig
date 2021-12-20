@@ -7,7 +7,7 @@ config BOARD
 	default "le_chiff_ble"
 
 config ZMK_KEYBOARD_NAME
-	default "le_chiff_ble"
+	default "schiffer bleu"
 
 if USB
 
