@@ -30,7 +30,7 @@
 			compatible = "zmk,behavior-hold-tap";
 			label = "homerow mods";
 			#binding-cells = <2>;
-			tapping_term_ms = <200>;
+			tapping_term_ms = <150>;
 			quick_tap_ms = <200>;
 			flavor = "tap-preferred";
 			bindings = <&kp>, <&kp>;
@@ -40,8 +40,8 @@
             compatible = "zmk,behavior-hold-tap";
             label = "homerow mods left";
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;                        
+            flavor = "tap-prferred";
+            tapping-term-ms = <150>;                        
             quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
 			// opposite side hand keys
@@ -52,8 +52,8 @@
             compatible = "zmk,behavior-hold-tap";
             label = "homerow mods right";
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;                        
+            flavor = "tap-preferred";
+            tapping-term-ms = <150>;                        
             quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
 			// opposite side hand keys
