@@ -23,6 +23,10 @@
 	quick_tap_ms = <200>;
 };
 
+&caps_word {
+	continue-list = <UNDERSCORE MINUS>;
+};
+
 / {
 	behaviors {
 		hm: homerow_mods {
@@ -232,10 +236,10 @@
 			key-positions = <27 28 29 30>;
 			bindings = <&kp LG(L)>;
 		};
-		combo_caps {
+		combo_caps-word {
 			timeout-ms = <20>;
 			key-positions = <13 16>;
-			bindings = <&kp CAPS>;
+			bindings = <&caps_word>;
 		};
 		combo_locklayer {
 			timeout-ms = <20>;
