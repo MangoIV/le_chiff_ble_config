@@ -17,7 +17,7 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     container:
-      image: zmkfirmware/zmk-build-arm:2.5
+      image: zmkfirmware/zmk-build-arm:stable
     strategy:
       fail-fast: false
       matrix:
@@ -72,9 +72,9 @@ jobs:
           ${{ steps.variables.outputs.shield-arg }} \
           -DZMK_CONFIG="${GITHUB_WORKSPACE}/${{ env.config-path }}" \
           ${{ matrix.cmake-args }}
-      - name: Generated DTS file
-        if: always()
-        run: cat -n build/zephyr/${{ matrix.board }}.dts.pre.tmp
+      # - name: Generated DTS file
+      #   if: always()
+      #   run: cat -n build/zephyr/${{ matrix.board }}.dts.pre.tmp
       - name: Rename artifacts
         run: |
           mkdir build/artifacts
