@@ -9,11 +9,11 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define NUM	1
-#define	FUN 2
-#define NAV	3
-#define	SET 4
-#define LOC	5
+#define NUM 1
+#define FUN 2
+#define NAV 3
+#define SET 4
+#define LOC 5
 
 &mt {
 	quick_tap_ms = <200>;
@@ -235,11 +235,6 @@
 			timeout-ms = <20>;
 			key-positions = <1 11>;
 			bindings = <&kp RA(S)>;
-		};
-		combo_quitTerminal {
-			timeout-ms = <20>;
-			key-positions = <20 21 22 23>;
-			bindings = <&kp LC(C)>;
 		};
 		combo_lockScreen {
 			timeout-ms = <20>;
