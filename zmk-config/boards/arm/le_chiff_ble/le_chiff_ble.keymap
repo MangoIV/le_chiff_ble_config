@@ -31,11 +31,12 @@
 	behaviors {
 		hm: homerow_mods {
 			compatible = "zmk,behavior-hold-tap";
-			label = "homerow mods";
+			label = "homerow mods with global quick tap";
 			#binding-cells = <2>;
 			tapping_term_ms = <200>;
-			quick_tap_ms = <200>;
+			quick_tap_ms = <100>;
 			flavor = "tap-preferred";
+			global-quick-tap;
 			bindings = <&kp>, <&kp>;
 		};
 
@@ -87,7 +88,7 @@
 //          ---------------------       --------------------
 			bindings = <
 			&kp Q		&kp W		&kp E		&kp R   	&kp T						&kp Y		&kp U		&kp I		&kp O			&kp P
-			&hl LGUI A	&hl LALT S	&hl LCTRL D	&hs LSHFT F	&kp G						&kp H		&hs RSHFT J	&hr RCTRL K	&hr LALT L		&hr LGUI SEMI
+			&hm LGUI A	&hm LALT S	&hm LCTRL D	&hm LSHFT F	&hm RALT G					&hm RALT H	&hm RSHFT J	&hm RCTRL K	&hm LALT L		&hm LGUI SEMI
 			&kp Z		&hm RALT X	&kp C		&kp V   	&kp B		&kp C_MUTE		&kp N		&kp M		&kp COMMA	&hm RALT DOT	&kp FSLH
 												&lt 4 TAB	&lt 3 RET					&lt 1 SPACE	&lt 2 BSPC
 			>;
