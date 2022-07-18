@@ -32,8 +32,7 @@ config ZMK_BATTERY_VOLTAGE_DIVIDER
 	default y
 
 config ZMK_DISPLAY
-  select LVGL_USE_IMG
-  # default y
+    default y
 
 if ZMK_DISPLAY
 
@@ -46,9 +45,11 @@ config SSD1306
 config SSD1306_REVERSE_MODE
 	default y
 
+
 endif # ZMK_DISPLAY
 
 if LVGL
+
 config LVGL_HOR_RES_MAX
 	default 128
 
