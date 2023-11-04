@@ -25,14 +25,14 @@
 		default {
             label = "Qwerty";
 //  _____________________________       _____________________________
-// /  Q  |  W  |  E  |  R  |  T  \     /  Y  |  U  |  I  |  O  |  P  \
-// |  A  |  S  |  D  |  F  |  G  | ___ |  H  |  J  |  K  |  L  |  ;  |
+// / CLR | PRV | NXT | BLE | USB \     /  Y  |  U  |  I  |  O  |  P  \
+// |BTSL0|BTSL1|BTSL2|BTSL3|BTSL4| ___ |  H  |  J  |  K  |  L  |  ;  |
 // |Sft/Z|  X  |  C  |  V  |  B  ||MUT||  N  |  M  |  ,  |  .  |Sft//|
 //         \LSup/Bspc|  Ctl/SPC  /     \  Num/Del  | Sym/Ent /
 //          ---------------------       --------------------
 			bindings = <
-            &kp Q       &kp W   &kp E   &kp R   &kp T                   &kp Y   &kp U   &kp I       &kp O   &kp P
-            &kp A       &kp S   &kp D   &kp F   &kp G                   &kp H   &kp J   &kp K       &kp L   &kp SEMI
+            &bt BT_CLR  &bt BT_PRV  &bt BT_NXT   &out OUT_BLE   &out OUT_USB                   &kp Y   &kp U   &kp I       &kp O   &kp P
+            &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                   &kp H   &kp J   &kp K       &kp L   &kp SEMI
             &mt LSHFT Z &kp X   &kp C   &kp V   &kp B   &kp C_MUTE      &kp N   &kp M   &kp COMMA   &kp DOT &mt RSHFT FSLH
                         &mt LGUI BSPC   &mt LCTRL SPACE                 &lt 1 RET       &lt 2 DEL
 			>;
