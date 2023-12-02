@@ -100,7 +100,7 @@
 			compatible = "zmk,behavior-hold-tap";
 			label = "homerow mods left";
 			#binding-cells = <2>;
-			flavor = "balanced";
+			flavor = "tap-preferred";
 			tapping-term-ms = <200>;
 			quick-tap-ms = <100>;
 			bindings = <&kp>, <&kp>;
@@ -112,7 +112,7 @@
 			compatible = "zmk,behavior-hold-tap";
 			label = "homerow mods right";
 			#binding-cells = <2>;
-			flavor = "balanced";
+			flavor = "tap-preferred";
 			tapping-term-ms = <200>;
 			quick-tap-ms = <100>;
 			bindings = <&kp>, <&kp>;
