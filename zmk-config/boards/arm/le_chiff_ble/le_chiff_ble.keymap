@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 @Lunaristic
+ * Copyright (c) 2022 @dreipunkteinsvier
  *
  * SPDX-License-Identifier: MIT
  */
@@ -15,6 +15,10 @@
 
 &lt {
 	quick_tap_ms = <200>;
+};
+
+&caps_word {
+	continue-list = <UNDERSCORE MINUS BSPC LSHFT RSHFT>;
 };
 
 //  _____________________________       _____________________________
