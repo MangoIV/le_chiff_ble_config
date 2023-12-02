@@ -108,7 +108,7 @@
 			label = "homerow mods left";
 			#binding-cells = <2>;
 			flavor = "balanced";
-			tapping-term-ms = <200>;
+			tapping-term-ms = <175>;
 			quick-tap-ms = <100>;
 			bindings = <&kp>, <&kp>;
 			// opposite side hand keys
@@ -120,7 +120,7 @@
 			label = "homerow mods right";
 			#binding-cells = <2>;
 			flavor = "balanced";
-			tapping-term-ms = <200>;
+			tapping-term-ms = <175>;
 			quick-tap-ms = <100>;
 			bindings = <&kp>, <&kp>;
 			// opposite side hand keys
@@ -132,7 +132,7 @@
 			label = "homerow mods shift";
 			#binding-cells = <2>;
 			flavor = "balanced";
-			tapping-term-ms = <200>;
+			tapping-term-ms = <175>;
 			quick-tap-ms = <100>;
 			bindings = <&kp>, <&kp>;
 		};
