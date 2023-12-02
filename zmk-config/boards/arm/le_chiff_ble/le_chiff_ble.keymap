@@ -37,7 +37,7 @@
 		};
 		macro_copy: macro_copy {
 			compatible = "zmk,behavior-macro";
-			#binding-cells = <1>;
+			#binding-cells = <0>;
 			bindings
 				= <&macro_press &kp LCTRL>
 				, <&macro_tap &kp Z &kp C>
@@ -46,7 +46,7 @@
 		};
 		macro_paste: macro_paste {
 			compatible = "zmk,behavior-macro";
-			#binding-cells = <2>;
+			#binding-cells = <0>;
 			bindings
 				= <&macro_press &kp LCTRL>
 				, <&macro_tap &kp Z &kp V>
@@ -99,8 +99,8 @@
 		hl: homerow_mods_left {
 			compatible = "zmk,behavior-hold-tap";
 			label = "homerow mods left";
-			#binding-cells = <3>;
-			flavor = "tap-preferred";
+			#binding-cells = <2>;
+			flavor = "balanced";
 			tapping-term-ms = <200>;
 			quick-tap-ms = <100>;
 			bindings = <&kp>, <&kp>;
@@ -111,8 +111,8 @@
 		hr: homerow_mods_right {
 			compatible = "zmk,behavior-hold-tap";
 			label = "homerow mods right";
-			#binding-cells = <3>;
-			flavor = "tap-preferred";
+			#binding-cells = <2>;
+			flavor = "balanced";
 			tapping-term-ms = <200>;
 			quick-tap-ms = <100>;
 			bindings = <&kp>, <&kp>;
@@ -123,7 +123,7 @@
 		hs: homerow_mods_shift {
 			compatible = "zmk,behavior-hold-tap";
 			label = "homerow mods shift";
-			#binding-cells = <3>;
+			#binding-cells = <2>;
 			flavor = "balanced";
 			tapping-term-ms = <200>;
 			quick-tap-ms = <100>;
