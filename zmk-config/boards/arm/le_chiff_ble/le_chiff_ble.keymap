@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 @dreipunkteinsvier
+ * Copyright (c) 2023 @Lunaristic
  *
  * SPDX-License-Identifier: MIT
  */
@@ -10,18 +10,11 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define QWR 0
-#define COL 1
-#define NUM 2
-#define FUN 3
-#define NAV 4
-#define SET 5
+#define NUM 1
+#define FUN 2
 
 &lt {
 	quick_tap_ms = <200>;
-};
-
-&caps_word {
-	continue-list = <UNDERSCORE MINUS BSPC LSHFT RSHFT>;
 };
 
 //  _____________________________       _____________________________
@@ -34,6 +27,7 @@
 / {
 	macros {
 		macro_cut: macro_cut {
+			label = "macro_cut";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
 			bindings
@@ -43,6 +37,7 @@
                 ;
 		};
 		macro_copy: macro_copy {
+			label = "macro_copy";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
 			bindings
@@ -52,6 +47,7 @@
                 ;
 		};
 		macro_paste: macro_paste {
+			label = "macro_paste";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
 			bindings
@@ -66,63 +62,39 @@
 		compatible = "zmk,combos";
 		combo_esc {
 			timeout-ms = <20>;
-			key-positions = <11 12>;
+			key-positions = <0 1>;
 			bindings = <&kp ESC>;
-			layers = <QWR COL>;
-		};
-		combo_tab {
-			timeout-ms = <20>;
-			key-positions = <12 13>;
-			bindings = <&kp TAB>;
-			layers = <QWR COL>;
+			layers = <QWR>;
 		};
 		combo_del {
 			timeout-ms = <20>;
-			key-positions = <15 16>;
+			key-positions = <1 2>;
 			bindings = <&kp DEL>;
-			layers = <QWR COL>;
+			layers = <QWR>;
 		};
-		combo_bspc {
+		combo_tab {
 			timeout-ms = <20>;
-			key-positions = <16 17>;
-			bindings = <&kp BSPC>;
-			layers = <QWR COL>;
+			key-positions = <10 11>;
+			bindings = <&kp TAB>;
+			layers = <QWR>;
 		};
-		combo_enter {
+		combo_cut {
 			timeout-ms = <20>;
-			key-positions = <17 18>;
-			bindings = <&kp RET>;
-			layers = <QWR COL>;
+			key-positions = <20 21>;
+			bindings = <&macro_cut>;
+			layers = <QWR>;
 		};
-		combo_ae {
+		combo_copy {
 			timeout-ms = <20>;
-			key-positions = <0 10>;
-			bindings = <&kp RA(Q)>;
-			layers = <QWR COL>;
+			key-positions = <21 22>;
+			bindings = <&macro_copy>;
+			layers = <QWR>;
 		};
-		combo_oe {
+		combo_paste {
 			timeout-ms = <20>;
-			key-positions = <8 18>;
-			bindings = <&kp RA(P)>;
-			layers = <QWR COL>;
-		};
-		combo_ue {
-			timeout-ms = <20>;
-			key-positions = <6 16>;
-			bindings = <&kp RA(Y)>;
-			layers = <QWR COL>;
-		};
-		combo_ss {
-			timeout-ms = <20>;
-			key-positions = <1 11>;
-			bindings = <&kp RA(S)>;
-			layers = <QWR COL>;
-		};
-		combo_caps-word {
-			timeout-ms = <20>;
-			key-positions = <13 16>;
-			bindings = <&caps_word>;
-			layers = <QWR COL>;
+			key-positions = <22 23>;
+			bindings = <&macro_paste>;
+			layers = <QWR>;
 		};
 	};
 
@@ -131,7 +103,7 @@
 			compatible = "zmk,behavior-hold-tap";
 			label = "homerow mods left";
 			#binding-cells = <2>;
-			flavor = "tap-preferred";
+			flavor = "balanced";
 			tapping-term-ms = <200>;
 			quick-tap-ms = <100>;
 			bindings = <&kp>, <&kp>;
@@ -143,7 +115,7 @@
 			compatible = "zmk,behavior-hold-tap";
 			label = "homerow mods right";
 			#binding-cells = <2>;
-			flavor = "tap-preferred";
+			flavor = "balanced";
 			tapping-term-ms = <200>;
 			quick-tap-ms = <100>;
 			bindings = <&kp>, <&kp>;
@@ -169,20 +141,9 @@
 			label = "Qwerty";
 			bindings = <
 			&kp Q		&kp W		&kp E		&kp R		&kp T					&kp Y		&kp U		&kp I		&kp O		&kp P
-			&hl LGUI A	&hl LALT S	&hl LCTRL D	&hs LSHFT F	&hl RALT G				&hr RALT H	&hs RSHFT J	&hr RCTRL K	&hr LALT L	&hr LGUI SEMI
+			&kp A		&kp S		&hs LSHFT D	&hl LCTRL F	&kp G					&kp H		&hl RCTRL J	&hs RSHFT K	&kp L		&kp RET
 			&kp Z		&kp X		&kp C		&kp V		&kp B		&kp C_MUTE	&kp N		&kp M		&kp COMMA	&kp DOT		&kp FSLH
-												&lt SET TAB	&lt NAV RET				&lt NUM SPACE	&lt FUN BSPC
-			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
-		};
-
-		colemak_layer {
-			label = "Colemak";
-			bindings = <
-			&kp Q		&kp W		&kp F		&kp P		&kp B					&kp J		&kp L		&kp U		&kp Y		&kp SEMI
-			&hl LGUI A	&hl LALT R	&hl LCTRL S	&hs LSHFT T	&hl RALT G				&hr RALT M	&hs RSHFT N	&hr RCTRL E	&hr LALT I	&hr LGUI O
-			&kp Z		&kp X		&kp C		&kp D		&kp V		&kp C_MUTE	&kp K		&kp H		&kp COMMA	&kp DOT		&kp FSLH
-												&lt SET TAB	&lt NAV RET				&lt NUM SPACE	&lt FUN BSPC
+												&kp LALT	&lt NUM SPACE			&lt FUN BSPC	&kp LGUI
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
@@ -190,10 +151,10 @@
 		numbers_layer {
 			label = "Numbers";
 			bindings = <
-			&kp MINUS	&kp N7		&kp N8		&kp N9		&kp N0					&none		&kp C_PREV	&kp C_VOL_DN	&kp C_VOL_UP	&kp C_NEXT
-			&kp EQUAL	&kp N4		&kp N5		&kp N6		&kp SQT					&none		&kp RSHFT	&kp RCTRL	&kp LALT	&kp LGUI
-			&kp GRAVE	&kp N1		&kp N2		&kp N3		&kp BSLH	&none		&none		&none		&none		&none		&none
-												&none		&none					&none		&kp DEL
+			&kp N1		&kp N2		&kp N3		&kp N4		&kp N5					&kp N6		&kp N7		&kp N8		&kp N9		&kp N0
+			&kp LEFT	&kp UP		&kp DOWN	&kp RIGHT	&none					&kp HOME	&kp RCTRL	&kp RSHFT	&kp LBKT	&kp RBKT
+			&kp MINUS	&kp EQUAL	&kp GRAVE	&none		&none		&none		&kp END		&none		&kp SEMI	&kp SQT		&kp BSLH
+												&kp CAPS	&none					&kp RALT	&none
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
@@ -201,32 +162,10 @@
 		functions_layer {
 			label = "Function";
 			bindings = <
-			&kp F12		&kp F7		&kp F8		&kp F9		&kp PSCRN				&none		&none		&none		&none		&none
-			&kp F11		&kp F4		&kp F5		&kp F6		&kp CAPS				&none		&kp RSHFT	&kp RCTRL	&kp LALT	&kp LGUI
-			&kp F10		&kp F1		&kp F2		&kp F3		&kp INS		&none		&none		&none		&none		&none		&none
-												&none		&none					&none		&kp DEL
-			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
-		};
-
-		navigation_layer {
-			label = "Navi";
-			bindings = <
-			&none		&none		&none		&none		&kp	LBRC				&kp	RBRC	&kp LC(LEFT)	&kp LC(DOWN)	&kp LC(UP)	&kp LC(RIGHT)
-			&kp LGUI	&kp LALT	&kp LCTRL	&kp LSHFT	&kp LPAR				&kp RPAR	&kp LEFT		&kp DOWN		&kp UP		&kp RIGHT
-			&none		&kp RALT	&none		&none		&kp LBKT	&none		&kp RBKT	&kp HOME		&kp PG_DN		&kp PG_UP	&kp END
-												&none		&none					&none		&kp DEL
-			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
-		};
-
-		settings_layer {
-			label = "Settings";
-			bindings = <
-			&none		&none		&none		&sys_reset	&none					&out OUT_USB	&out OUT_BLE	&none			&none			&none
-			&none		&none		&none		&bootloader	&none					&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_SEL 4
-			&none		&none		&none		&none		&none		&none		&to 0			&to 1			&bt BT_PRV		&bt BT_NXT		&bt BT_CLR
-												&none		&none					&none			&kp DEL
+			&kp F1			&kp F2			&kp F3			&kp F4			&kp F5							&kp F6			&kp F7			&none		&kp F9			&kp F10
+			&kp F11			&kp F12			&kp C_PP		&none			&kp PSCRN						&none			&none			&none		&none			&none
+			&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_SEL 4		&none		&out OUT_USB	&out OUT_BLE	&kp PG_UP	&kp PG_DOWN		&bt BT_CLR
+															&none			&none							&none			&none
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
