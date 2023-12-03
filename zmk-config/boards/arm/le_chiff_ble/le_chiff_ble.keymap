@@ -30,11 +30,11 @@
 //           --------------------       --------------------
 
 &mmv {
-	time-to-max-speed-ms = <30>;
+    time-to-max-speed-ms = <500>;
 };
 
 &mwh {
-	acceleration-exponent = <1>;
+    acceleration-exponent = <1>;
 };
 
 / {
