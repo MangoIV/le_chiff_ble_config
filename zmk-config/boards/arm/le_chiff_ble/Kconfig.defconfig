@@ -65,4 +65,6 @@ endchoice
 
 endif # LVGL
 
+CONFIG_ZMK_MOUSE=y
+
 endif # BOARD_LE_CHIFF_BLE
