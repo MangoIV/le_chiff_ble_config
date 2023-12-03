@@ -29,15 +29,15 @@
 //          \   31   |    32     /     \     33    |  34    /
 //           --------------------       --------------------
 
+&mmv {
+	time-to-max-speed-ms = <30>;
+};
+
+&mwh {
+	acceleration-exponent = <1>;
+};
+
 / {
-	&mmv {
-		time-to-max-speed-ms = <30>;
-	};
-
-	&mwh {
-		acceleration-exponent=<1>;
-	};
-
 	macros {
 		macro_cut: macro_cut {
 			label = "macro_cut";
