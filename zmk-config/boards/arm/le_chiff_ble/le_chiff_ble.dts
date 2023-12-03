@@ -63,12 +63,14 @@
 		label = "CENTER_ENCODER";
 		a-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
 		b-gpios = <&gpio0  9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+		steps = <20>;
 		resolution = <4>;
 		status = "okay";
 	};
 
 	sensors: sensors {
 		compatible = "zmk,keymap-sensors";
+		triggers-per-rotation = <10>;
 		status = "okay";
         sensors = <&center_encoder>;
 	};
