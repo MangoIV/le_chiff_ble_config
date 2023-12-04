@@ -108,7 +108,7 @@
 			compatible = "zmk,behavior-hold-tap";
 			label = "homerow mods left";
 			#binding-cells = <2>;
-			flavor = "balanced";
+			flavor = "hold-preferred";
 			tapping-term-ms = <175>;
 			quick-tap-ms = <100>;
 			bindings = <&kp>, <&kp>;
@@ -120,7 +120,7 @@
 			compatible = "zmk,behavior-hold-tap";
 			label = "homerow mods right";
 			#binding-cells = <2>;
-			flavor = "balanced";
+			flavor = "hold-preferred";
 			tapping-term-ms = <175>;
 			quick-tap-ms = <100>;
 			bindings = <&kp>, <&kp>;
@@ -167,7 +167,7 @@
 		functions_layer {
 			label = "Function";
 			bindings = <
-			&kp F1			&kp F2			&kp F3			&kp F4			&kp F5							&kp F6			&kp F7			&mmv MOVE_UP	&kp F9				&kp F10
+			&kp F1			&kp F2			&kp F3			&kp F4			&kp F5							&kp F6			&kp F7			&none	&kp F9				&kp F10
 			&kp F11			&kp F12			&kp C_PP		&none			&kp PSCRN						&none			&mmv MOVE_LEFT	&mmv MOVE_DOWN	&mmv MOVE_RIGHT		&mkp LCLK
 			&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_SEL 4		&none		&out OUT_USB	&out OUT_BLE	&mwh SCROLL_UP	&mwh SCROLL_DOWN	&bt BT_CLR
 															&none			&none							&none			&none
