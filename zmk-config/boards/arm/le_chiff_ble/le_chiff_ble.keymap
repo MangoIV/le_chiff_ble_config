@@ -104,36 +104,12 @@
 	};
 
 	behaviors {
-		hl: homerow_mods_left {
+		hm: homerow_mods {
 			compatible = "zmk,behavior-hold-tap";
-			label = "homerow mods left";
+			label = "homerow mods";
 			#binding-cells = <2>;
 			flavor = "hold-preferred";
-			tapping-term-ms = <175>;
-			quick-tap-ms = <100>;
-			bindings = <&kp>, <&kp>;
-			// opposite side hand keys
-			hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 26 27 28 29 30>;
-		};
-
-		hr: homerow_mods_right {
-			compatible = "zmk,behavior-hold-tap";
-			label = "homerow mods right";
-			#binding-cells = <2>;
-			flavor = "hold-preferred";
-			tapping-term-ms = <175>;
-			quick-tap-ms = <100>;
-			bindings = <&kp>, <&kp>;
-			// opposite side hand keys
-			hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24>;
-		};
-
-		hs: homerow_mods_shift {
-			compatible = "zmk,behavior-hold-tap";
-			label = "homerow mods shift";
-			#binding-cells = <2>;
-			flavor = "balanced";
-			tapping-term-ms = <175>;
+			tapping-term-ms = <150>;
 			quick-tap-ms = <100>;
 			bindings = <&kp>, <&kp>;
 		};
@@ -146,7 +122,7 @@
 			label = "Qwerty";
 			bindings = <
 			&kp Q		&kp W		&kp E		&kp R		&kp T					&kp Y		&kp U		&kp I		&kp O		&kp P
-			&kp A		&kp S		&hs LSHFT D	&hr LCTRL F	&kp G					&kp H		&hl RCTRL J	&hs RSHFT K	&kp L		&kp RET
+			&kp A		&kp S		&hm LSHFT D	&hm LCTRL F	&kp G					&kp H		&hm RCTRL J	&hm RSHFT K	&kp L		&kp RET
 			&kp Z		&kp X		&kp C		&kp V		&kp B		&kp C_MUTE	&kp N		&kp M		&kp COMMA	&kp DOT		&kp FSLH
 												&kp LALT	&lt NUM SPACE			&lt FUN BSPC	&kp LGUI
 			>;
@@ -167,9 +143,9 @@
 		functions_layer {
 			label = "Function";
 			bindings = <
-			&kp F1			&kp F2			&kp F3			&kp F4			&kp F5							&kp F6			&kp F7			&none	&kp F9				&kp F10
-			&kp F11			&kp F12			&kp C_PP		&none			&kp PSCRN						&none			&mmv MOVE_LEFT	&mmv MOVE_DOWN	&mmv MOVE_RIGHT		&mkp LCLK
-			&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_SEL 4		&none		&out OUT_USB	&out OUT_BLE	&mwh SCROLL_UP	&mwh SCROLL_DOWN	&bt BT_CLR
+			&kp F1			&kp F2			&kp F3			&kp F4			&kp F5							&kp F6			&kp F7			&none	&kp F9		&kp F10
+			&kp F11			&kp F12			&kp C_PP		&none			&kp PSCRN						&none			&none			&none	&none		&none
+			&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_SEL 4		&none		&out OUT_USB	&out OUT_BLE	&none	&none		&bt BT_CLR
 															&none			&none							&none			&none
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
