@@ -18,6 +18,14 @@
 	quick_tap_ms = <200>;
 };
 
+&mmv {
+    time-to-max-speed-ms = <500>;
+};
+
+&mwh {
+    acceleration-exponent=<1>;
+};
+
 &caps_word {
 	continue-list = <UNDERSCORE MINUS BSPC LSHFT RSHFT>;
 };
