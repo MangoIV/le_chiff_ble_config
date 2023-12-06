@@ -9,6 +9,8 @@ config BOARD
 config ZMK_KEYBOARD_NAME
 	default "le_chiff_ble"
 
+CONFIG_ZMK_MOUSE=y
+
 if USB
 
 config USB_NRFX
