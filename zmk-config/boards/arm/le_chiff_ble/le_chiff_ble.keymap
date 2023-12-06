@@ -10,9 +10,9 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/mouse.h>
 
-#define QWR 0
-#define NUM 1
-#define FUN 2
+#define QWRT 0
+#define NUMB 1
+#define FUNC 2
 
 #define U_MOUSE_MOVE_MAX 1600                     /* <--- New max speed setting (default: 600) */
 #undef MOVE_UP
@@ -97,37 +97,37 @@
 			timeout-ms = <20>;
 			key-positions = <0 1>;
 			bindings = <&kp ESC>;
-			layers = <QWR>;
+			layers = <QWRT>;
 		};
 		combo_del {
 			timeout-ms = <20>;
 			key-positions = <1 2>;
 			bindings = <&kp DEL>;
-			layers = <QWR>;
+			layers = <QWRT>;
 		};
 		combo_tab {
 			timeout-ms = <20>;
 			key-positions = <10 11>;
 			bindings = <&kp TAB>;
-			layers = <QWR>;
+			layers = <QWRT>;
 		};
 		combo_cut {
 			timeout-ms = <20>;
 			key-positions = <20 21>;
 			bindings = <&macro_cut>;
-			layers = <QWR>;
+			layers = <QWRT>;
 		};
 		combo_copy {
 			timeout-ms = <20>;
 			key-positions = <21 22>;
 			bindings = <&macro_copy>;
-			layers = <QWR>;
+			layers = <QWRT>;
 		};
 		combo_paste {
 			timeout-ms = <20>;
 			key-positions = <22 23>;
 			bindings = <&macro_paste>;
-			layers = <QWR>;
+			layers = <QWRT>;
 		};
 	};
 
@@ -152,7 +152,7 @@
 			&kp Q		&kp W		&kp E		&kp R		&kp T					&kp Y		&kp U		&kp I		&kp O		&kp P
 			&kp A		&kp S		&hm LSHFT D	&hm LCTRL F	&kp G					&kp H		&hm RCTRL J	&hm RSHFT K	&kp L		&kp RET
 			&kp Z		&kp X		&kp C		&kp V		&kp B		&kp C_MUTE	&kp N		&kp M		&kp COMMA	&kp DOT		&kp FSLH
-												&kp LALT	&lt NUM SPACE			&lt FUN BSPC	&kp LGUI
+												&kp LALT	&lt NUM SPACE			&lt FUNC BSPC	&kp LGUI
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
@@ -163,7 +163,7 @@
 			&kp N1		&kp N2		&kp N3		&kp N4		&kp N5					&kp N6		&kp N7		&kp N8		&kp N9		&kp N0
 			&kp LEFT	&kp UP		&kp DOWN	&kp RIGHT	&none					&kp HOME	&hm RCTRL J	&hm RSHFT K	&kp LBKT	&kp RBKT
 			&kp MINUS	&kp EQUAL	&kp GRAVE	&none		&none		&none		&kp END		&none		&kp SEMI	&kp SQT		&kp BSLH
-												&kp CAPS	&none					&kp RALT	&none
+												&kp CAPS	&none					&kp RALT	&tog FUNC
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
@@ -174,7 +174,7 @@
 			&kp F1			&kp F2			&kp F3			&kp F4			&kp F5									&kp F6			&kp F7			&mmv MOVE_UP	&kp F9				&kp F10
 			&kp F11			&kp F12			&kp C_PP		&none			&kp PSCRN								&none			&mmv MOVE_LEFT	&mmv MOVE_DOWN	&mmv MOVE_RIGHT		&mkp LCLK
 			&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_SEL 4		&bootloader			&out OUT_USB	&out OUT_BLE	&mwh SCROLL_UP	&mwh SCROLL_DOWN	&bt BT_CLR
-															&none			&none									&none			&none
+															&none			&none									&none			&tog FUNC
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
