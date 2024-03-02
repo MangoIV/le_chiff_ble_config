@@ -106,8 +106,9 @@
 	status = "okay";
 
 	compatible = "nordic,nrf-twi";
-	sda-pin = <24>;
-	scl-pin = <22>;
+	pinctrl-0 = <&i2c0_default>;
+	pinctrl-1 = <&i2c0_sleep>;
+	pinctrl-names = "default", "sleep";
 	oled: ssd1306@3c {
 		compatible = "solomon,ssd1306fb";
 		reg = <0x3c>;
@@ -122,6 +123,23 @@
 		com-invdir;
 		com-sequential;
 		prechargep = <0x22>;
+	};
+};
+
+&pinctrl {
+	i2c0_default: i2c0_default {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 24)>,
+				<NRF_PSEL(TWIM_SCL, 0, 22)>;
+		};
+	};
+
+	i2c0_sleep: i2c0_sleep {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 24)>,
+				<NRF_PSEL(TWIM_SCL, 0, 22)>;
+			low-power-enable;
+		};
 	};
 };
 
